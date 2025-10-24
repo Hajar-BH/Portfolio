@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Étudiante en Informatique</title>
+    <meta name="description" content="Portfolio d'une étudiante en informatique à la recherche d'un stage">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    
+    <!-- Fichiers CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Polices Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Navigation principale">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-text">Portfolio</a>
+            </div>
+            <ul class="nav-menu" id="nav-menu" role="menubar">
+                <li class="nav-item" role="none">
+                    <a href="#accueil" class="nav-link active" data-section="accueil" role="menuitem">Accueil</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="#apropos" class="nav-link" data-section="apropos" role="menuitem">À propos</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="#projets" class="nav-link" data-section="projets" role="menuitem">Projets</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="#competences" class="nav-link" data-section="competences" role="menuitem">Compétences</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="#contact" class="nav-link" data-section="contact" role="menuitem">Contact</a>
+                </li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menu de navigation" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Section Héros -->
+    <section id="accueil" class="hero-section" role="banner">
+        <div id="particles" class="particles" aria-hidden="true"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="greeting">Salut! 👋</span>
+                        <span class="name">Je suis Hajar Boumezgane</span>
+                    </h1>
+                    <p class="hero-description">
+                        Étudiante passionnée en informatique, à la recherche d'un stage pour mettre en pratique mes compétences et apprendre aux côtés de professionnels.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projets" class="btn btn-primary">Mes Projets</a>
+                        <a href="#contact" class="btn btn-primary">Me Contacter</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card">
+                        <div class="card-header">
+                            <div class="card-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span style="font-size: 12px; color: #666;">portfolio.js</span>
+                        </div>
+                        <div class="code-text">
+                            <div class="code-line">
+                                <span class="keyword">const</span> 
+                                <span class="variable">etudiante</span> 
+                                <span class="operator"> = </span>
+                                <span class="array">{</span>
+                            </div> 
+                            <div class="code-line indent">
+                                <span class="property">nom:</span>
+                                <span class="string"> "Hajar Boumezgane"</span>,
+                            </div>
+                            <div class="code-line indent">
+                                <span class="property">passion:</span>
+                                <span class="string"> "Analyse & Conception"</span>,
+                            </div>
+                            <div class="code-line indent">
+                                <span class="property">objectif:</span>
+                                <span class="string"> "Stage 2026"</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="array">};</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="apropos" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title scroll-animate">À propos de moi</h2>
+                <p class="section-subtitle scroll-animate">Passionnée par l'informatique et l'innovation</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text scroll-animate-left">
+                    <h3>Hajar Boumezgane</h3>
+                    <p class="about-description">
+                        Étudiante passionnée en informatique, je me spécialise dans le développement web, 
+                        l'intelligence artificielle et les architectures distribuées. Mon parcours m'a permis 
+                        de développer une expertise dans la création d'interfaces utilisateur intuitives et 
+                        l'implémentation de solutions techniques innovantes.
+                    </p>
+                    
+                </div>
+                <div class="about-cta scroll-animate-right">
+                    <div class="cv-download-card">
+                        <div class="cv-icon">
+                            <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                        </div>
+                        <h3>Télécharger mon CV</h3>
+                        <p>Consultez mon CV complet pour découvrir mon parcours, mes compétences et mes projets en détail.</p>
+                        <a href="CV_Hajar_Boumezgane.pdf" onclick="downloadCV(event)" class="btn btn-primary cv-download-btn">
+                            <i class="fas fa-download" aria-hidden="true"></i>
+                            Télécharger mon CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projets" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title scroll-animate">Mes Projets</h2>
+                <p class="section-subtitle scroll-animate">De l'idée à la réalisation, mes projets incarnent ma passion pour l'innovation technologique.</p>
+            </div>
+            
+            <!-- Filtres de projets -->
+            <div class="projects-filter scroll-animate">
+                <button class="filter-btn active" data-filter="all" aria-pressed="true">
+                    <i class="fas fa-th-large" aria-hidden="true"></i>
+                    Tous les projets
+                </button>
+                <button class="filter-btn" data-filter="frontend" aria-pressed="false">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    Frontend & Expérience Utilisateur
+                </button>
+                <button class="filter-btn" data-filter="ml" aria-pressed="false">
+                    <i class="fas fa-brain" aria-hidden="true"></i>
+                    Machine Learning & Analyse Sémantique
+                </button>
+                <button class="filter-btn" data-filter="distributed" aria-pressed="false">
+                    <i class="fas fa-server" aria-hidden="true"></i>
+                    Systèmes Distribués & Automatisation
+                </button>
+            </div>
+            
+            <div class="projects-grid scroll-animate" id="projects-grid">
+                <!-- Les projets seront insérés dynamiquement ici -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section id="competences" class="skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title scroll-animate">Mes Compétences</h2>
+                <p class="section-subtitle scroll-animate">Les technologies que je maîtrise</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card scroll-animate stagger-item" data-skill="javascript">
+                    <div class="skill-icon">
+                        <i class="fab fa-js-square" aria-hidden="true"></i>
+                    </div>
+                    <h3>JavaScript</h3>
+                    <div class="skill-level">
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
+                        </div>
+                        <span class="percentage">75%</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card scroll-animate stagger-item" data-skill="html">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5" aria-hidden="true"></i>
+                    </div>
+                    <h3>HTML5</h3>
+                    <div class="skill-level">
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
+                        </div>
+                        <span class="percentage">95%</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card scroll-animate stagger-item" data-skill="css">
+                    <div class="skill-icon">
+                        <i class="fab fa-css3-alt" aria-hidden="true"></i>
+                    </div>
+                    <h3>CSS3</h3>
+                    <div class="skill-level">
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="92" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
+                        </div>
+                        <span class="percentage">92%</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card scroll-animate stagger-item" data-skill="python">
+                    <div class="skill-icon">
+                        <i class="fab fa-python" aria-hidden="true"></i>
+                    </div>
+                    <h3>Python</h3>
+                    <div class="skill-level">
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
+                        </div>
+                        <span class="percentage">75%</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card scroll-animate stagger-item" data-skill="php">
+                    <div class="skill-icon">
+                        <i class="fab fa-php" aria-hidden="true"></i>
+                    </div>
+                    <h3>PHP</h3>
+                    <div class="skill-level">
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
+                        </div>
+                        <span class="percentage">75%</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card scroll-animate stagger-item" data-skill="java">
+                    <div class="skill-icon">
+                        <i class="fab fa-java" aria-hidden="true"></i>
+                    </div>
+                    <h3>Java</h3>
+                    <div class="skill-level">
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
+                        </div>
+                        <span class="percentage">80%</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card scroll-animate stagger-item" data-skill="sql">
+                    <div class="skill-icon">
+                        <i class="fas fa-database" aria-hidden="true"></i>
+                    </div>
+                    <h3>SQL</h3>
+                    <div class="skill-level">
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
+                        </div>
+                        <span class="percentage">85%</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card scroll-animate stagger-item" data-skill="ai">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain" aria-hidden="true"></i>
+                    </div>
+                    <h3>Intelligence Artificielle</h3>
+                    <div class="skill-level">
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
+                        </div>
+                        <span class="percentage">70%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title scroll-animate">Contactez-moi</h2>
+                <p class="section-subtitle scroll-animate">Prête pour de nouveaux défis</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info scroll-animate-left">
+                    <h3>Disponible pour un stage</h3>
+                    <p>Je recherche activement un stage en développement web pour mettre en pratique mes compétences et apprendre aux côtés d'une équipe expérimentée. N'hésitez pas à me contacter !</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-item">
+                            <div class="contact-icon email-icon">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <a href="mailto:boumezganehajar@gmail.com" class="contact-link">boumezganehajar@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon linkedin-icon">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>LinkedIn</h4>
+                                <a href="https://linkedin.com/in/hajar-boumezgane" class="contact-link" target="_blank" rel="noopener">linkedin.com/in/hajar-boumezgane</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon github-icon">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/Hajar-BH" class="contact-link" target="_blank" rel="noopener">github.com/Hajar-BH</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-cta scroll-animate-right">
+                    <div class="cta-card">
+                        <div class="cta-icon">
+                            <i class="fas fa-rocket" aria-hidden="true"></i>
+                        </div>
+                        <h3>Intéressé par mon profil ?</h3>
+                        <p>Téléchargez mon CV ou contactez-moi directement pour discuter d'une opportunité de stage. Je suis disponible immédiatement pour commencer une collaboration enrichissante.</p>
+                        
+                        <div class="cta-contact-methods">
+                            <a href="mailto:boumezganehajar@gmail.com" class="cta-contact-button">
+                                <div class="cta-contact-icon email-icon">
+                                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                                </div>
+                                <span>M'envoyer un mail</span>
+                            </a>
+                            
+                            <a href="tel:+33 7 43 15 35 33" class="cta-contact-button">
+                                <div class="cta-contact-icon phone-icon">
+                                    <i class="fas fa-phone" aria-hidden="true"></i>
+                                </div>
+                                <span>M'appeler +33 7 43 35 33</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>&copy; 2025 Hajar Boumezgane. Tous droits réservés.</p>
+                <p>Portfolio créé avec passion pour présenter mes compétences en informatique.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#accueil" class="footer-link">Retour en haut</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Fonction de téléchargement du CV -->
+    <script>
+        function downloadCV(event) {
+            event.preventDefault(); // empêche l'ouverture du PDF
+            const link = document.createElement('a');
+            link.href = 'CV_Hajar_Boumezgane.pdf';
+            link.download = 'CV_Hajar_Boumezgane.pdf';
+            document.body.appendChild(link);
+            link.click();  // lance le téléchargement
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>

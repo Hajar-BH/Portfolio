@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chargement Portfolio Hajar...</title>
+    <meta name="description" content="Portfolio de Hajar Boumezgane - Chargement en cours...">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #1a1a1a; /* Fond sombre */
+            color: #00ff00; /* Texte vert par défaut */
+            font-family: 'Source Code Pro', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Empêche le scroll pendant l'animation */
+            transition: opacity 0.5s ease-out; /* Pour la redirection manuelle */
+        }
+
+        .terminal-container {
+            width: 90%;
+            max-width: 700px; /* Ajustez si besoin */
+        }
+
+        .terminal {
+            background-color: #0d0d0d; /* Fond du terminal légèrement différent */
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.3); /* Lueur verte */
+            overflow: hidden;
+            border: 1px solid rgba(0, 255, 0, 0.2);
+        }
+
+        .terminal-header {
+            background-color: #2a2a2a;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .terminal-dots {
+            display: flex;
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .dot.red { background-color: #ff5f56; }
+        .dot.yellow { background-color: #ffbd2e; }
+        .dot.green { background-color: #27c93f; }
+
+        .terminal-title {
+            color: #bbb;
+            font-size: 14px;
+            margin-left: auto; 
+        }
+
+        .terminal-body {
+            padding: 15px;
+            height: 400px; 
+            overflow-y: auto; /* Permet de scroller si le contenu dépasse */
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .terminal-line {
+            margin: 0;
+            white-space: pre-wrap; 
+            word-break: break-all; 
+            margin-bottom: 2px; /* Petit espace entre les lignes */
+        }
+
+        .prompt {
+            color: #39ff14; 
+        }
+
+        .command {
+            color: #e0e0e0;
+        }
+
+        .output {
+            color: #00ffcc; 
+            padding-left: 0; /* Pas d'indentation générale, on la gère avec le prompt '>' */
+        }
+
+        /* Styles spécifiques pour le status TROUVÉ */
+        .status-found {
+            color: #00ffff; /* Bleu cyan vif pour "TROUVÉ" */
+            font-weight: bold;
+            margin-left: 5px; /* Espace avant TROUVÉ */
+        }
+
+        /* Style spécifique pour le nom du candidat - CHANGEMENT POUR LE CLIGNOTEMENT */
+         .candidate-name {
+             color: #ffffff; /* Blanc brillant */
+             font-weight: bold;
+             margin-left: 5px; /* Espace après le texte */
+             animation: blink-name 1.2s infinite; /* On applique l'animation ici */
+        }
+
+        /* Nouvelle animation de clignotement pour le nom */
+        @keyframes blink-name {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0.5; } 
+        }
+
+
+        .final-message {
+            color: #ffff00; /* Jaune pour le message final */
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+         /* Style pour la ligne de lien cliquable */
+        .link-line {
+            color: #00ffcc; /* Cyan (comme les sorties) */
+            padding-left: 0;
+            margin-top: 15px; /* Plus d'espace avant le lien */
+        }
+        .link-line a {
+            color: #00ffcc; 
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .link-line a:hover {
+            color: #fff; 
+        }
+
+        /* Curseur clignotant */
+        .cursor {
+            display: inline-block;
+            background-color: #00ff00;
+            width: 8px; /* Largeur du curseur */
+            height: 1em; /* Hauteur du curseur */
+            margin-left: 2px;
+            vertical-align: middle; /* Aligner le curseur avec le texte */
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="terminal-title">bash</div>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const terminalBody = document.getElementById('terminal-body');
+            const userHost = 'portfolio-hajar:~$ ';
+            const emptyPrompt = '> '; // Prompt pour les lignes de sortie
+
+            // La séquence des commandes et des sorties
+             const sequence = [
+                { type: 'command', text: './chercherProfil Stage2026', delayAfter: 500 },
+                { type: 'output', text: 'analyse du parcours...', delayAfter: 800 },
+                { type: 'output', text: 'filtrage des compétences...', delayAfter: 1000 },
+                { type: 'output', text: 'vérification de l\'énergie...', status: 'TROUVÉ', statusClass: 'status-found', delayAfter: 700 },
+                { type: 'output', text: 'vérification de la motivation...', status: 'TROUVÉ', statusClass: 'status-found', delayAfter: 700 },
+                { type: 'output', text: 'vérification de la rapidité d\'apprentissage...', status: 'TROUVÉ', statusClass: 'status-found', delayAfter: 1200 },
+                { type: 'output', text: 'CANDIDAT TROUVÉ : ', candidateName: 'HAJAR BOUMEZGANE', nameClass: 'candidate-name', delayAfter: 800 },
+                { type: 'output', text: 'INITIALISATION DU PROTOCOLE DE CONTACT...', delayAfter: 1500 },
+                { type: 'final-message', text: 'Bonjour. Mission comprise. Je suis prête, motivée et adaptable pour concrétiser votre vision !', delayAfter: 1000 },
+                { type: 'link-line', text: 'Cliquez ici pour entrer dans le Portfolio', href: 'portfolio.html', delayAfter: 0 }
+            ];
+
+            
+            function addLine(text, type = 'output', status = '', statusClass = '', candidateName = '', nameClass = '', href = '') {
+                const line = document.createElement('div');
+                line.classList.add('terminal-line', type);
+
+                const promptSpan = document.createElement('span');
+                promptSpan.classList.add('prompt');
+                promptSpan.textContent = emptyPrompt;
+                line.appendChild(promptSpan);
+
+                // Si c'est un lien
+                if (type === 'link-line') {
+                    const link = document.createElement('a');
+                    link.href = href;
+                    link.textContent = text;
+                    link.onclick = function(e) {
+                        e.preventDefault(); 
+                        document.body.style.opacity = '0';
+                        setTimeout(() => { window.location.href = href; }, 500); 
+                    }
+                    line.appendChild(link);
+                } else {
+                    // Sinon, texte normal
+                    const textSpan = document.createElement('span');
+                    textSpan.textContent = text;
+                    line.appendChild(textSpan);
+
+                    if (candidateName) {
+                        const nameSpan = document.createElement('span');
+                        nameSpan.classList.add(nameClass);
+                        nameSpan.textContent = candidateName;
+                        line.appendChild(nameSpan);
+                    }
+
+                    if (status) {
+                        const statusSpan = document.createElement('span');
+                        statusSpan.classList.add(statusClass);
+                        statusSpan.textContent = status;
+                        line.appendChild(statusSpan);
+                    }
+                }
+
+                terminalBody.appendChild(line);
+                terminalBody.scrollTop = terminalBody.scrollHeight; 
+            }
+
+
+            // Fonction pour simuler la frappe d'une commande
+            function typeCommand(text, callback) {
+                const line = document.createElement('div');
+                line.classList.add('terminal-line');
+                const promptSpan = document.createElement('span');
+                promptSpan.classList.add('prompt');
+                promptSpan.textContent = userHost;
+                const commandSpan = document.createElement('span');
+                commandSpan.classList.add('command');
+                const cursorSpan = document.createElement('span');
+                cursorSpan.classList.add('cursor');
+                cursorSpan.innerHTML = '█'; // Caractère bloc curseur
+
+                line.appendChild(promptSpan);
+                line.appendChild(commandSpan);
+                line.appendChild(cursorSpan);
+                terminalBody.appendChild(line);
+                terminalBody.scrollTop = terminalBody.scrollHeight; 
+
+                let charIndex = 0;
+                const typingInterval = setInterval(() => {
+                    if (charIndex < text.length) {
+                        commandSpan.textContent += text.charAt(charIndex);
+                        charIndex++;
+                        terminalBody.scrollTop = terminalBody.scrollHeight; // Scroll pendant la frappe
+                    } else {
+                        clearInterval(typingInterval);
+                        line.removeChild(cursorSpan); 
+                        if (callback) callback();
+                    }
+                }, 80); 
+            }
+
+            // Fonction pour exécuter la séquence
+            async function runSequence() {
+                for (const item of sequence) {
+                    if (item.type === 'command') {
+                        await new Promise(resolve => {
+                            typeCommand(item.text, resolve);
+                        });
+                    } else {
+                        addLine(item.text, item.type, item.status, item.statusClass, item.candidateName, item.nameClass, item.href);
+                    }
+
+                    // Pause après l'affichage de la ligne
+                    if (item.delayAfter > 0) {
+                        await new Promise(resolve => setTimeout(resolve, item.delayAfter));
+                    }
+                }
+                 // L'ajoute un curseur clignotant à la fin pour indiquer que c'est prêt
+                 const finalPromptLine = document.createElement('div');
+                 finalPromptLine.classList.add('terminal-line');
+                 const finalPromptSpan = document.createElement('span');
+                 finalPromptSpan.classList.add('prompt');
+                 finalPromptSpan.textContent = emptyPrompt; 
+                 const finalCursorSpan = document.createElement('span');
+                 finalCursorSpan.classList.add('cursor');
+                 finalCursorSpan.innerHTML = '█';
+                 finalPromptLine.appendChild(finalPromptSpan);
+                 finalPromptLine.appendChild(finalCursorSpan);
+                 terminalBody.appendChild(finalPromptLine);
+                 terminalBody.scrollTop = terminalBody.scrollHeight;
+            }
+
+            // Lance l'animation quand le DOM est prêt
+            runSequence();
+        });
+    </script>
+</body>
+</html>
