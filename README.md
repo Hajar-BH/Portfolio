@@ -1,6 +1,7 @@
 # Aperçu
 
-Bienvenue sur mon portfolio !
+Bienvenue sur mon portfolio ! https://hajar-bh.github.io/Portfolio/
+
 Il s’agit d’un site moderne et interactif que j’ai conçu pour présenter mon parcours, mes compétences et mes projets. Développé comme une application monopage (SPA), il intègre des animations fluides, un design responsive et des fonctionnalités d’accessibilité.
 
 Mon objectif est de partager mon travail à travers une interface professionnelle et épurée, avec des dégradés de couleurs, une typographie moderne et une expérience utilisateur agréable. Ce portfolio est aussi une façon pour moi de me préparer au monde professionnel et de saisir de nouvelles opportunités.
